@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Local files
+*.csv
+variables.tf
+ny_taxi_postgres_data
+
+.DS_Store
+.idea/*
+.ipynb_checkpoints/*
