@@ -136,3 +136,7 @@ ny_taxi_postgres_data
 .DS_Store
 .idea/*
 .ipynb_checkpoints/*
+
+nscacert_combined.pem
+
+logs/
