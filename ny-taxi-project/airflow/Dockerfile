@@ -15,7 +15,7 @@ RUN apt-get update -qq && apt-get install vim -qqq
 
 COPY requirements.txt .
 # --no-cache-dir
-RUN pip install -r requirements.txt --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org
+RUN pip install -r requirements.txt --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org #--no-cache-dir
 
 
 # Ref: https://airflow.apache.org/docs/docker-stack/recipes.html
