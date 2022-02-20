@@ -16,8 +16,8 @@ PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
 BUCKET = os.environ.get("GCP_GCS_BUCKET")
 
 URL_PREFIX = 'https://s3.amazonaws.com/nyc-tlc/trip+data'
-URL_TEMPLATE = URL_PREFIX + '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
-TABLE_NAME_TEMPLATE = 'yellow_taxi_{{ execution_date.strftime(\'%Y_%m\') }}'
+URL_TEMPLATE = URL_PREFIX + '/green_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
+TABLE_NAME_TEMPLATE = 'green_taxi_{{ execution_date.strftime(\'%Y_%m\') }}'
 OUTPUT_FILE_CSV = AIRFLOW_HOME + TABLE_NAME_TEMPLATE + ".csv"
 OUTPUT_FILE_PARQUET = AIRFLOW_HOME + TABLE_NAME_TEMPLATE + ".parquet"
 
@@ -74,7 +74,7 @@ default_args = {
 
 # NOTE: DAG declaration - using a Context Manager (an implicit way)
 with DAG(
-        dag_id="data_ingestion_yellow_taxi_v02",
+        dag_id="data_ingestion_green_taxi_v02",
         schedule_interval="@monthly",
         default_args=default_args,
         catchup=True,
@@ -104,7 +104,7 @@ with DAG(
         python_callable=upload_to_gcs,
         op_kwargs={
             "bucket": BUCKET,
-            "object_name": f"yellow/{TABLE_NAME_TEMPLATE}.parquet",
+            "object_name": f"green/{TABLE_NAME_TEMPLATE}.parquet",
             "local_file": f"{OUTPUT_FILE_PARQUET}",
         },
     )

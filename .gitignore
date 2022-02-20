@@ -140,3 +140,5 @@ ny_taxi_postgres_data
 nscacert_combined.pem
 
 logs/
+
+**/extras/*.csv
