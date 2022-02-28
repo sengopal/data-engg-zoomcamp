@@ -142,3 +142,10 @@ nscacert_combined.pem
 logs/
 
 **/extras/*.csv
+
+**/hw5/data
+
+*.csv.1
+
+zones/
+fhvhv/
