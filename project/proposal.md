@@ -1,10 +1,22 @@
 # Zoomcamp Project Proposal
 
-## Project requirements
-1. pipeline for processing dataset and putting it to a datalake 
-2. pipeline for moving the data from the lake to a data warehouse 
-3. Transform the data in the data warehouse: prepare it for the dashboard
-4. Create a dashboard
+## Problem description - Spotify Monitoring
+(This is a hypothetical and synthetic requirement formulated for the zoomcamp project).
+
+Spotify business wishes to review popular tracks on a period basis (monthly/yearly) to help create features such as "Currently trending", "2021 Top Hits", "Trending artists" etc., To solve this need, the data engineering / analytics need to create a pipeline to convert the raw data collected for popularity into actionable dashboards for the business team to analyze and curate to form the "Top Hits", "Trending" etc.,   
+
+The pipeline refreshes data on a monthly basis with popularity information, pulling the raw data into data lake first for storage, extracting and transforming into trending data structure in cloud for easier dashboard construction from which business intelligence for trending and top hits can be easily obtained in a structured form. 
+
+## Project high level design
+This project produces a pipeline which:
+
+1. pull the raw data into GCP cloud
+2. Transforms the raw data into standard tables
+3. Joins the artists and tracks table to provide popularity metrics via dbt and write them back into BigQuery
+4. Produce dashboard tiles in Google Data studio.
+5. This allows the analytics to view the combined tracks and artists popularity information for quick review.
+
+> Insert pipeline diagram here
 
 ## Dataset
 [Spotify Dataset](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-600k-tracks?select=tracks.csv)
@@ -14,24 +26,11 @@
 
 ## Technology choices
 1. Cloud: GCP
-2. Infrastructure as code (IaC): Terraform 
-3. Workflow orchestration: Airflow 
-4. Data Warehouse: BigQuery 
-5. Batch processing: Spark 
-6. Stream processing: None
-
-## Project specific choices
-
-1. Datalake: GCP Bucket
-2. Transformations: dbt
-
-## Problem description - Spotify Monitoring
-Spotify data analytics monitor the popular tracks and the associated artists in a periodical manner. This project helps 
-1. pull the raw data into GCP cloud
-2. Transforms the raw data into standard tables
-3. Joins the artists and tracks table to provide popularity metrics via dbt and write them back into BigQuery
-4. Produce dashboard tiles in Google Data studio.
-5. This allows the analytics to view the combined tracks and artists popularity information for quick review.
+2. Datalake: GCP Bucket
+3. Infrastructure as code (IaC): Terraform 
+4. Workflow orchestration: Airflow 
+5. Data Warehouse: BigQuery 
+6. Transformations: dbt
 
 ## Proposal to address the requirements
 1. **Data ingestion** - Using Airflow to download the dataset and place it in GCP Bucket
