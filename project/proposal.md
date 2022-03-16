@@ -10,11 +10,12 @@ The pipeline refreshes data on a monthly basis with popularity information, pull
 ## Project high level design
 This project produces a pipeline which:
 
-1. pull the raw data into GCP cloud
-2. Transforms the raw data into standard tables
-3. Joins the artists and tracks table to provide popularity metrics via dbt and write them back into BigQuery
-4. Produce dashboard tiles in Google Data studio.
-5. This allows the analytics to view the combined tracks and artists popularity information for quick review.
+1. Uses Terraform to manage the infrastructure
+2. pull the raw data into GCP cloud
+3. Transforms the raw data into standard tables
+4. Joins the artists and tracks table to provide popularity metrics via dbt and write them back into BigQuery
+5. Produce dashboard tiles in Google Data studio.
+6. This allows the analytics to view the combined tracks and artists popularity information for quick review.
 
 > Insert pipeline diagram here
 
